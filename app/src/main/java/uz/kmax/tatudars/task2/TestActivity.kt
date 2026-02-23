@@ -1,5 +1,6 @@
 package uz.kmax.tatudars.task2
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
@@ -23,18 +24,25 @@ class TestActivity : AppCompatActivity() {
         addTest()
         allWorks()
         binding.testCheck.setOnClickListener {
-
+            if (variantList[selectedVariant].text == testList[currentLevel].answer){
+                binding.testStatus.text = "TEST JAVOBI TO'G'RI"
+                binding.testStatus.setTextColor(Color.GREEN)
+            }else{
+                binding.testStatus.text = "TEST JAVOBI NOTO'G'RI"
+                binding.testStatus.setTextColor(Color.RED)
+            }
         }
     }
 
     private fun allWorks() {
         for (i in 0 until binding.radioList.childCount){
             variantList.add(binding.radioList.getChildAt(i) as RadioButton)
+            if (variantList[i].isChecked || variantList[i].isSelected){
+                selectedVariant = i
+            }
         }
 
         binding.testQuestion.text = testList[currentLevel].question
-
-
     }
 
     private fun addTest() {
