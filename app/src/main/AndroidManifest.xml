@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".task1.Task1Activity"/>
+        <activity android:name=".task2.TestActivity"/>
     </application>
 
 </manifest>

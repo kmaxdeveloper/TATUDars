@@ -1,5 +1,6 @@
 package uz.kmax.tatudars
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModel
 import uz.kmax.tatudars.databinding.ActivityMainBinding
+import uz.kmax.tatudars.task1.Task1Activity
+import uz.kmax.tatudars.task2.TestActivity
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -18,15 +21,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button.setOnClickListener {
-            binding.text.text = "Kod ishladi !"
-            val randomColor = Color.rgb(Random.nextInt(256), Random.nextInt(256), Random.nextInt(256))
-            binding.text.setTextColor(randomColor)
-            binding.imgAndroid.visibility = View.VISIBLE
+        binding.task1.setOnClickListener {
+            val intent = Intent(this, Task1Activity::class.java)
+            startActivity(intent)
         }
 
-        binding.button2.setOnClickListener {
-            binding.button2.text = "Tugma bosildi !"
+        binding.task2.setOnClickListener {
+            val intent = Intent(this, TestActivity::class.java)
+            startActivity(intent)
         }
     }
 }
