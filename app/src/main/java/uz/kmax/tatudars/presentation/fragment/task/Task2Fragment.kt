@@ -1,29 +1,20 @@
-package uz.kmax.tatudars.task2
+package uz.kmax.tatudars.presentation.fragment.task
 
 import android.graphics.Color
-import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import uz.kmax.tatudars.data.model.TestData
-import uz.kmax.tatudars.databinding.ActivityTask2TestBinding
+import uz.kmax.base.fragment.BaseFragmentNV
+import uz.kmax.tatudars.domain.model.TestData
+import uz.kmax.tatudars.databinding.FragmentTask2Binding
 
-
-
-class TestActivity : AppCompatActivity() {
+class Task2Fragment : BaseFragmentNV<FragmentTask2Binding>(FragmentTask2Binding::inflate) {
     private var testList : ArrayList<TestData> = ArrayList()
     private var variantList : ArrayList<RadioButton> = ArrayList()
     private var currentLevel = 0
     private var selectedVariant = -1
-
-    private lateinit var binding : ActivityTask2TestBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityTask2TestBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun onViewCreated() {
         addTest()
         allWorks()
         binding.testCheck.setOnClickListener {
@@ -41,7 +32,7 @@ class TestActivity : AppCompatActivity() {
                     binding.testStatus.setTextColor(Color.RED)
                 }
             }else{
-                Toast.makeText(this, "Variantni tanlang !", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Variantni tanlang !", Toast.LENGTH_SHORT).show()
             }
         }
     }

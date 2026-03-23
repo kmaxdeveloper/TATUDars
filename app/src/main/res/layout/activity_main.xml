@@ -10,15 +10,9 @@
     android:gravity="center"
     android:background="@color/white">
 
-    <Button
-        android:id="@+id/task1"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:text="TASK 1" />
-    <Button
-        android:id="@+id/task2"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:text="TASK 2" />
+        android:layout_height="match_parent"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

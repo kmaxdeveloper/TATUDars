@@ -1,4 +1,4 @@
-package uz.kmax.tatudars.data.model
+package uz.kmax.tatudars.domain.model
 
 data class TestData(
     var question: String = "",
